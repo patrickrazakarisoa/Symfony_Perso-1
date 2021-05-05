@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Personnage!{% endblock %}
+{% block title %}Arme!{% endblock %}
 
-{% block monTitre %}Liste des personnages{% endblock %}
+{% block monTitre %}Liste des armes{% endblock %}
 {% block body %}
 <table class="table">
      <tr class="thead-dark">
@@ -11,8 +11,8 @@
      </tr>
      {% for arme in armes %}
      <tr>
-          <td><img src="{{asset('images/armes/' ~ arme.nom ~'.png')}} " alt=""></td>
-          <td><a href="{{ path('afficher_arme', {'nom':arme.nom |lower } ) }}">{{ arme.nom }}</a></td>
+          <td><img src="{{asset('images/armes/' ~ arme.nom |replace({'é':'e'}) ~'.png')}} " alt=""></td>
+          <td><a href="{{ path('afficher_arme', {'nom':arme.nom |replace({'é':'e'}) } ) }}">{{ arme.nom }}</a></td>
      </tr>   
      {% endfor %}
 </table>
